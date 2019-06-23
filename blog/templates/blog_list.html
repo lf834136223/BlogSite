@@ -1,0 +1,33 @@
+x   {% extends 'base.html'  %}
+{% block title %}
+    廖飞博客网
+{% endblock %}
+
+
+{% block content %}
+    <p>
+        当前已发表博客篇数：{{ blogs|length }}篇
+    </p>
+    <hr>
+
+    {% for blog in blogs %} 
+        <a href="{% url 'blog_detail' blog.pk %}">
+            <h3 class='blogs_now_num'>
+               第{{blog.id}}篇博客：{{ blog.title }}
+            </h3>
+        </a>
+        <h3>
+            作者：{{ blog.author }}    发布时间:{{ blog.created_time|date:"Y-m-d H:n:s" }}
+        </h3>
+        <p>
+            文章简介:{{ blog.content|truncatechars:20 }}
+        </p>
+        <p>
+        <hr>
+            {% empty %}
+            暂无博客，敬请期待！
+        </p>
+    {% endfor %}
+
+{% endblock %}
+

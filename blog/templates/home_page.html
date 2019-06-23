@@ -1,0 +1,18 @@
+{# 模板，使用extends扩展 #}
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block self_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home_page.css' %}">
+{% endblock %}
+
+{# 页面标题 #}
+{% block title %}
+    廖飞博客网  | 首页
+{% endblock %}
+    
+{% block content %}
+    <p class='home_content'>
+        欢迎进入廖飞博客网，看官老爷们随便看~
+    </p>
+{% endblock %}

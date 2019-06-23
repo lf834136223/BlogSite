@@ -1,0 +1,56 @@
+<!-- blog应用模板,使用了BootStrap框架-->
+
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    {% block self_css %}{% endblock %}
+    <meta charset="UTF-8">
+    <!-- 如果是IE浏览器，告诉他使用最新版本的内核 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 响应式，自适应设备屏幕大小 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block  title %}{% endblock %}</title>
+
+    <!-- 有些js插件需要依赖Jquery库，所以先引入Jquery -->
+    <script src="{% static 'jquery-1.12.4.min.js' %}"></script>
+    <!-- 加载BootStrap的所有js插件 -->
+    <script src="{% static 'bootstrap-3.3.7/js/bootstrap.min.js' %}"></script>
+
+    <!-- 引用css静态文件 -->
+    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-3.3.7/css/bootstrap.min.css' %}">
+</head>
+
+<body> 
+    <!-- 导航条 -->
+    <nav class="navbar navbar-default" role='navigation'>
+        <!--为了实现不同设备响应，设定一个容器-->
+        <div class="container-fluid">
+            <!-- 导航条头部，即logo -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">廖飞</a>
+            </div>
+
+            <ul class='nav navbar-nav'>
+               <li><a href="{% url 'home' %}">首页</a></li> 
+               <li><a href="{% url 'blog_list' %}">博客</a></li>
+               <li class="dropdown">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+                   <ul class='dropdown-menu'>
+                        <li><a href="{% url 'connect_me' %}">联系我</a></li>
+                        <li><a href="">加入我</a></li>
+                   </ul>
+               </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 主体内容 -->
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div> 
+</body>
+</html>

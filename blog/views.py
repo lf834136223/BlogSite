@@ -8,6 +8,7 @@ def blog_list(request):
     # all()方法得到Blog类的一个集合，是数据库和模型对象交互的接口(api)
     context['blogs'] = Blog.objects.all()
     # context['blog'] = get_object_or_404(Blog, pk=blog_pk)
+    context['blog_types'] = BlogType.objects.all()
     return render_to_response('blog_list.html', context)
 
 

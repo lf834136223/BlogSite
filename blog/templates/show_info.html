@@ -1,16 +1,100 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+
 
 {% block title %}
     联系廖飞！
 {% endblock %}
 
+{% block self_css %}
+  <link rel="stylesheet" href="{% static 'blog/show_info.css' %}">
+{% endblock %}
+
 {% block content %}
-    <h3>
-        这是我的个人信息，欢迎联系我。
-    </h3>
-    <hr>
-    <p>
-        {{ infos.name }}
-        {{ infos.gender }}
-    </p>
+    <div class="divContent container">
+        <div class="row">
+            <div class="col-sm-4">
+                <blockquote>
+                    <h2>廖飞</h2>
+                    <footer>求职意向：Python后端工程师</footer>
+                </blockquote>
+                <div class="row text-center">
+                    <img src="./img/zmz.jpg" alt="boy" width="150px" class="img-responsive img-circle img-thumbnail">
+                </div>
+                <div class="row text-center">
+                    <h3>个人介绍</h3>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover table-condensed">
+                      <tr>
+                          <td>姓名</td>
+                          <td>廖飞</td>
+                          <td>年龄</td>
+                          <td>22</td>
+                      </tr>
+                      <tr>
+                          <td>学校</td>
+                          <td>湖南文理学院</td>
+                          <td>学历</td>
+                          <td>本科</td>
+                      </tr>
+                      <tr>
+                          <td>专业</td>
+                          <td>电子信息科学与技术</td>
+                          <td>学制</td>
+                          <td>全日制</td>
+                      </tr>    
+                  </table>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <!-- 大屏幕 -->
+                <div class="jumbotron">
+                    <h2>个人荣誉</h2>
+                    <hr>
+                    <p2>获得******************************************</p2>
+                    <h2>我的空间</h2>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <a href=""><button class="btn-primary">个人博客</button></a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href=""><button class="btn-primary">个人博客园</button></a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href=""><button class="btn-primary">我的github</button></a>
+                        </div>
+                    </div>
+                    <h2>个人技能</h2>
+                    <hr>
+                    <p>1.***************</p>
+                    <p>2.***************</p>
+                    <p>3.***************</p>
+                    <p>4.***************</p>
+                    <p>5.***************</p>
+                    <hr>
+                    <h2>个人项目</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h2 class="lead">请联系我</h2>
+            <div class="panel panel-default">
+                <div class="panel-heading">如果你感兴趣</div>
+                <div class="panel-body">
+                    <form action="" method="post">
+                        <label class="control-label" for="email">Email</label>
+                        <input type="email" class="form-control" id="email" />
+                        <br/>
+                        <div class="btn-group pull-right">
+                            <button type="submit" class="btn btn-success">请联系我</button>
+                            <button type="reset" class="btn btn-danger">重置</button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
